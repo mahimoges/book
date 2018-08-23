@@ -1,0 +1,63 @@
+select get_total(30.99,30.99);
+
+create or replace function hi_lo(
+	a numeric,
+	b numeric,
+	c numeric, 
+	out hi numeric,
+	out lo numeric
+)
+AS $$
+Begin
+ hi:= GREATEST(a,b,c);
+ lo:= LEAST (a,b,c);
+ end;
+ $$ Language plpgsql;
+ 
+select hi_lo(89,798,167);
+
+
+
+create or replace function sum_avg(
+	variadic list numeric  [],
+	out total numeric, out average numeric (10,2))
+	
+	AS $$
+	Begin
+	Select into total SUM(list[i])
+	from generate_subscripts(list,1) g(i);
+	
+	Select into average AVG(list[i])
+	from generate_subscripts(list,1) g(i);
+	
+	end;
+	$$ 
+	language plpgsql;
+	
+select * from sum_avg(3,4,5); 
+								 
+								 
+-- Read from the table.
+Create or replace function get_film(p_pattern varchar)
+returns table(film_title varchar,film_release_year integer)
+AS $$
+BEGIN
+RETURN QUERY 
+	Select title, cast(release_year as integer)
+	from film
+	where title ILIKE p_pattern;
+	end;
+	$$ language plpgsql;
+								 
+Select * from get_film('P%');								 
+								 
+								 
+--write the function that will read the customer table and print 
+-- the only cusotomer based on first_name,last_name city and address.
+								 
+								 
+								 
+								 
+								 
+								 
+								 

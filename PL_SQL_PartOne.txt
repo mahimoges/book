@@ -1,0 +1,95 @@
+/*
+[ <<label>> ]
+[ DECLARE
+    declarations ]
+BEGIN
+    statements;
+ ...
+END [ label ];
+
+
+CREATE FUNCTION function_name(p1 type, p2 type)
+ RETURNS type AS
+BEGIN
+ -- logic
+END;
+LANGUAGE language_name;
+*/
+
+--Function getSum
+CREATE OR REPLACE FUNCTION get_sum(
+ a NUMERIC, 
+ b NUMERIC) 
+RETURNS NUMERIC AS $$
+BEGIN
+ RETURN a + b;
+END; $$
+LANGUAGE plpgsql;
+
+select get_sum(25,25);
+
+
+--Function HI and LO numbers
+create or replace function hi_lo(
+	a numeric,
+	b numeric,
+	c numeric,
+		out hi numeric, out lo numeric)
+
+As $$
+Begin
+hi := GREATEST (a,b,c);
+lo := LEAST (a,b,c);
+end;
+$$ language plpgsql;
+
+Select hi_lo(20,30,40);
+Select hi_lo(24,3,4);		
+
+
+--function Square
+Create or Replace function square(
+	inout a numeric)
+	AS $$
+	begin
+	a := a * a;
+	end;
+	$$ language plpgsql;
+	
+	Select square(5);
+
+--function total
+Create Or Replace function total()
+returns integer as $total$
+
+declare
+total integer;
+begin
+select count(*) into total from sales;
+return total;
+end;
+$total$ language plpgsql;
+
+select total();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+select * from actor;
+
+select first_name,last_name 
+From actor;
+
+select * from film;
+
+select distinct release_year
+from film;
+
+
+select distinct rental_rate
+from film;
+
+select distinct rating
+from film;
+
+select distinct rating,rental_rate,length
+from film;
+
+select * from customer;
+
+select * from customer
+where first_name = 'Ruth';
+
+select email from customer
+where first_name = 'Linda' and last_name = 'Williams';
+
+select * from payment;
+
+Select * from payment
+where amount >= 7.99;
+
+Select * from payment
+where customer_id >= 347;
+
+Select * from payment
+Where customer_id = 347 And staff_id = 2;
+
+Select * from payment 
+Where  amount != 7.99; 
+
+
+
+Select * From payment 
+Where amount >= 0.00 AND amount <= 4.99  
+AND  customer_id = 347;
+
+
+Select amount,payment_date, staff_id 
+From payment
+Where amount != 7.99;
+
+Select * from payment
+Where customer_id = 343 Or customer_id = 3633;
+
+Select * from customer
+Where last_name = 'Smith' Or last_name = 'Jones';
+
+Select * from city;
+
+Select count(*) from city;
+
+Select count(distinct city)
+from city;
+
+Select * from payment;
+
+Select count (distinct amount)
+from payment;
+
+--Limit
+Select * from payment
+limit 5;
+
+
+
+
+
+

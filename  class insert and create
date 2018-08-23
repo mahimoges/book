@@ -1,0 +1,84 @@
+create table role (role_id serial primary key int,role_name varchar(20) unique not null);
+create table account_role(user_id integer NOt null,
+						  role_id integer not null,grant_date timestamp with out time zone,
+						  primary key (user_id,role_id));
+amount number is only for decimal(22.00 like that)
+(amount <0) if you dont want to negative values.
+alter table If exist account_role 
+rename to payment_id
+
+how to insert some thing
+
+select * from actor;
+update public.actor
+set actor_id=203,frst_name='penelope',last name='guiness'
+where actor_id = 20;
+
+
+...................
+
+create or replace function get_total(a integer, b integer)
+									returns integer as $$
+                                    begin 
+									return a + b;
+									END $$
+									language plpgsql;
+									
+									select get_total(25,25);
+
+
+insert in to table(column 1)
+		
+
+
+.........chang(rename) table
+
+ alter table account_role rename to payment_role;
+ 
+ 
+
+create or replace function get_total(a integer, b integer)
+									returns integer as $$
+                                    begin 
+									return a + b;
+									END $$
+									language plpgsql;
+									a > b
+									select get_total(25,25);
+create or replace function greter_integervalu(a integer, b integer )
+						return  as $$
+						begin 
+						return 
+						return a
+						
+						END $$
+						language plpgsql
+						select greter_value
+						
+						create function 
+						
+						
+						create function toreturn Max(@Num1 int, @num2 int) 
+						return int
+						as
+						begin
+						if(@num1>num2)
+						return @num
+						Else
+						return isnull(@num1,num2)
+						END
+	                    language plpgsql
+					create or replace function hi_lo(a numeric,b  numeric,c numeric )
+					
+					
+					
+					
+					create or replace function sq(a integer, b integer,
+					                             out sq numeric)
+												 as $$
+												 begin
+												 sq:= (a*b);
+												 end;
+												 $$ language plpgsql;
+												 create or replace function sq
+												 select sq(5,5);

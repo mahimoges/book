@@ -1,0 +1,7 @@
+SELECT public.get_customer(
+	<customer character varying>
+
+	select title,description,rental_duration, actor_id,film _id from film
+	inner join film_actor on film.film_id = film_actor.film_id;
+	
+	select film_id from film_actor;
